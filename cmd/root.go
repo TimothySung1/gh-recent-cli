@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/TimothySung1/gh-recent-cli/api"
 	"github.com/spf13/cobra"
 )
 
@@ -21,4 +22,6 @@ func Execute() {
 		fmt.Fprintf(os.Stderr, "Error will executing gh-recent '%s'\n", err)
 		os.Exit(1)
 	}
+
+	fmt.Println(api.HttpGetRequest("https://api.github.com/issues")) // /repos/{owner}/{repo}/issues for specific repository's issues
 }
